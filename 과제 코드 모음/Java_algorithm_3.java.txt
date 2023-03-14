@@ -1,54 +1,54 @@
 package com.example;
 
 import java.util.*;
-import java.lang.StringBuilder;
+import java.lang.*;
 
 public class Main {
+    public static void main(String[] args) {
+        showOutput(converte(generate(getInputs())));
+    }
+
     public static int[] getInputs() {
         Scanner scanner = new Scanner(System.in);
         String[] inputs = scanner.nextLine().split(" ");
         scanner.close();
         int count = inputs.length;
-        int[] answer = new int[count];
+        int[] result = new int[count];
         for (int i = 0; i < count; i++) {
-            answer[i] = Integer.parseInt(inputs[i]);
+            result[i] = Integer.parseInt(inputs[i]);
         }
-        return answer;
+        return result;
     }
 
-    public static int[] generate(int[] answer, int count) {
+    public static int[] generate(int[] inputs, int count) {
         int[] result = new int[count];
-        int d = answer[1];
-        result[0] = answer[0];
+        int d = inputs[1];
+        result[0] = inputs[0];
         for (int i = 1; i < count; i++) {
             result[i] = result[i - 1] + d;
         }
         return result;
     }
 
-    public static int[] generate(int[] answer) {
-        return generate(answer, 10);
+    public static int[] generate(int[] inputs) {
+        return generate(inputs, 10);
     }
 
-    public static StringBuilder converte(int[] result) {
-        StringBuilder stringbuilder = new StringBuilder("");
-        int count = result.length;
+    public static String converte(int[] inputs) {
+        StringBuilder result = new StringBuilder("");
+        int count = inputs.length;
         for (int i = 0; i < count; i++) {
-            stringbuilder.append(Integer.toString(result[i]));
+            result.append(Integer.toString(inputs[i]));
             if (i != count - 1) {
-                stringbuilder.append(" ");
+                result.append(" ");
             } else {
-                stringbuilder.append("\n");
+                result.append("\n");
             }
         }
-        return stringbuilder;
+        return result.toString();
     }
 
-    public static void showOutput(StringBuilder stringbuilder) {
-        System.out.println(stringbuilder);
-    }
-
-    public static void main(String[] args) {
-        showOutput(converte(generate(getInputs())));
+    public static void showOutput(String input) {
+        System.out.println(input);
     }
 }

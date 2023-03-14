@@ -1,0 +1,31 @@
+package game;
+
+import java.util.Random;
+import java.lang.Math;
+
+public class Cleric {
+    String name;
+
+    final int HP_MAX = 50; // final 붙였어야함
+    final int MP_MAX = 10; // final 붙였어야함
+    
+    int hp = HP_MAX; // 수정을 용이하게 재사용해야함
+    int mp = MP_MAX; // 수정을 용이하게 재사용해야함
+    
+    Random random = new Random(); // 재사용이 되기 때문에 필드에 선언하는게 나음
+
+    void selfAid() {
+        if (mp >= 5) {
+            this.hp = HP_MAX;
+            this.mp -= 5;
+        }
+    }
+
+    int pray(int sec) {
+        int mpRecovery = random.nextInt(3) + sec;
+        this.mp += mpRecovery;
+        this.mp = Math.min(this.mp, MP_MAX);
+        
+        return mpRecovery;
+    }
+}

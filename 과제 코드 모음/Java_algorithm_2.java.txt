@@ -3,22 +3,26 @@ package com.example;
 import java.util.*;
 
 public class Main {
+    public static void main(String[] args) {
+        showOutput(determine(getInputs()));
+    }
+
     public static int[] getInputs() {
         Scanner scanner = new Scanner(System.in);
         String[] inputs = scanner.nextLine().split(" ");
         scanner.close();
         int count = inputs.length;
-        int[] answer = new int[count];
+        int[] result = new int[count];
         for (int i = 0; i < count; i++) {
-            answer[i] = Integer.parseInt(inputs[i]);
+            result[i] = Integer.parseInt(inputs[i]);
         }
-        return answer;
+        return result;
     }
 
-    public static String determine(int[] answer) {
+    public static String determine(int[] inputs) {
         String result = "YES";
         int sum = 0;
-        for (int num : answer) {
+        for (int num : inputs) {
             sum += num;
         }
         if (sum % 2 == 0) {
@@ -29,9 +33,5 @@ public class Main {
 
     public static void showOutput(String result) {
         System.out.println(result);
-    }
-
-    public static void main(String[] args) {
-        showOutput(determine(getInputs()));
     }
 }

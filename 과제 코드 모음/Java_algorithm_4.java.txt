@@ -1,0 +1,66 @@
+package com.example;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        int[] firstline = toInteger(scanner);
+        int[] secondline = toInteger(scanner);
+        int[] inputs = zipIntArrays(firstline, secondline);
+        String[] trees = solution(scanner, inputs);
+        showOutputs(trees);
+    }
+
+    public static int[] toInteger(Scanner scanner) {
+        String[] inputs = scanner.nextLine().split(" ");
+        int[] outputs = new int[inputs.length];
+        for (int i = 0; i < inputs.length; i++) {
+            outputs[i] = Integer.parseInt(inputs[i]);
+        }
+        return outputs;
+    }
+
+    public static int[] zipIntArrays(int[] array1, int[] array2) {
+        int[] result = new int[array1.length + array2.length];
+        for (int i = 0; i < result.length; i++) {
+            if (i < array1.length) {
+                result[i] = array1[i];
+            } else {
+                result[i] = array2[i - array1.length];
+            }
+        }
+        return result;
+    }
+
+    public static String[] solution(Scanner scanner, int[] inputs) {
+        int xOfFocus = inputs[0];
+        int yOfFocus = inputs[1];
+        int radius = inputs[2];
+        int number = inputs[3];
+        String[] result = new String[number];
+        for (int k = 0; k < number; k++) {
+            int[] newInputs = toInteger(scanner);
+            int xOfTree = newInputs[0];
+            int yOfTree = newInputs[1];
+            result[k] = determine(xOfTree, yOfTree, xOfFocus, yOfFocus, radius);
+        }
+        return result;
+    }
+
+    public static String determine(int xOfTree, int yOfTree, int xOfFocus, int yOfFocus,
+            int radius) {
+        String result = "silent";
+        if (Math.pow((xOfTree - xOfFocus), 2) + Math.pow((yOfTree - yOfFocus), 2) <= Math
+                .pow(radius, 2)) {
+            result = "noisy";
+        }
+        return result;
+    }
+
+    public static void showOutputs(String[] outputs) {
+        for (String output : outputs) {
+            System.out.println(output);
+        }
+    }
+}
