@@ -4,19 +4,19 @@ import java.util.Random;
 import java.lang.Math;
 
 public class Cleric {
-    static final int HP_MAX = 50; // final 붙였어야함
-    static final int MP_MAX = 10; // final 붙였어야함
+    static final int HP_MAX = 50;
+    static final int MP_MAX = 10;
     
     String name;
 
-    int hp = HP_MAX; // 수정을 용이하게 재사용해야함
-    int mp = MP_MAX; // 수정을 용이하게 재사용해야함
+    int hp = Cleric.HP_MAX;
+    int mp = Cleric.MP_MAX;
 
-    Random random = new Random(); // 재사용이 되기 때문에 필드에 선언하는게 나음
+    Random random = new Random();
 
     void selfAid() {
         if (mp >= 5) {
-            this.hp = HP_MAX;
+            this.hp = Cleric.HP_MAX;
             this.mp -= 5;
         }
     }
@@ -24,7 +24,7 @@ public class Cleric {
     int pray(int sec) {
         int mpRecovery = random.nextInt(3) + sec;
         this.mp += mpRecovery;
-        this.mp = Math.min(this.mp, MP_MAX);
+        this.mp = Math.min(this.mp, Cleric.MP_MAX);
         return mpRecovery;
     }
 }
