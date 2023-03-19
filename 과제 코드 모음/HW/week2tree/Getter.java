@@ -6,15 +6,11 @@ import java.util.Scanner;
 // 오버라이딩이 발생하면 안되므로 final을 선언합니다.
 public final class Getter {
     // 스캐너를 main 메소드에서 선언하는 것은 cool하지 못하므로 이 인터페이스에서 선언하여 재사용합니다.
-<<<<<<< HEAD
     // scanner가 변하면 문제가 발생하므로 private로 선언합니다.
     private static final Scanner scanner = new Scanner(System.in);
 
     // 인스턴스를 생성하면 안되므로, 생성자를 private로 선언합니다.
     private Getter() {}
-=======
-    static Scanner scanner = new Scanner(System.in);
->>>>>>> 747bce18d43ce00e2f28216cbe34557ffdff97f3
 
     // 입력을 한줄씩 받아 문자열로 반환하는 메소드 입니다.
     public static String getLine() {
