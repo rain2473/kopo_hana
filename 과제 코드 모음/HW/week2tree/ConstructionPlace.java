@@ -10,7 +10,7 @@ public class ConstructionPlace extends Place {
         // x, y 좌표를 설정합니다.
         this.setCoordinate(Convertor.string2IntArray(input, 0, 1));
         // 소음의 크기를 설정합니다.
-        setNoise(Convertor.intOfString(input, 2));
+        this.setNoise(Convertor.intOfString(input, 2));
     }
 
     // 소음의 크기를 반환받는 메소드입니다.

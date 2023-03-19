@@ -6,10 +6,10 @@ import java.lang.Math;
 public class Tree extends Place {
     // 해당 나무에서 소음이 들리는지를 의미하는 변수입니다.
     private boolean noisy;
-
+ 
     // 나무의 특성을 입력받아 이를 생성하는 생성자입니다.
     public Tree(String input) {
-        super.setCoordinate(input);
+        this.setCoordinate(input);
     }
 
     // 공사장 객체를 입력받아 소음여부를 설정하는 메소드입니다.

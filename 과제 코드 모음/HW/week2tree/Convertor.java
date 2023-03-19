@@ -1,8 +1,11 @@
 package HW.week2tree;
 
 // 타입형 전환에 필요한 메소드들을 정의하는 객체입니다.
-// 인스턴스를 생성하면 안되므로, interface를 채택합니다.
-public interface Convertor {
+// 오버라이딩이 발생하면 안되므로 final을 선언합니다.
+public final class Convertor {
+    // 인스턴스를 생성하면 안되므로, 생성자를 private로 선언합니다.
+    private Convertor() {}
+
     // 반환형이 문자열인 메소드//
 
     // 정수를 문자열로 반환하는 메소드 입니다.
@@ -46,7 +49,7 @@ public interface Convertor {
 
     // 문자열의 n번째 요소를 정수로 반환하는 메소드입니다.
     public static int intOfString(String input, int idx) {
-        return String2Int(string2StringArray(input)[idx]);
+        return String2Int(partOfString(input, idx));
     }
 
     // 반환형이 문자열 배열인 메소드 //
