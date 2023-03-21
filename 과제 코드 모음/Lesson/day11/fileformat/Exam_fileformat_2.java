@@ -1,7 +1,6 @@
 package Lesson.day11.fileformat;
 
 import java.io.*;
-import java.util.*;
 
 public class Exam_fileformat_2 {
     public static void main(String[] args) throws IOException, ClassNotFoundException {

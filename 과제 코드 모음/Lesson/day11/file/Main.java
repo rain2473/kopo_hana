@@ -4,7 +4,11 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        biteArrayWriter();
+        Reader reader = new StringReader("hello");
+        char ch1 = (char) reader.read();
+        char ch2 = (char) reader.read();
+        System.out.println(ch1);
+        System.out.println(ch2);
     }
 
     public static void textWriter() throws IOException {
@@ -40,7 +44,7 @@ public class Main {
         }
     }
     
-    public static void StringReader(String msg) throws IOException{
+    public static void stringReader(String msg) throws IOException{
         Reader reader = new StringReader(msg);
         char ch1 = (char) reader.read();
         char ch2 = (char) reader.read();
