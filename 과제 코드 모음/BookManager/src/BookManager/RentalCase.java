@@ -20,7 +20,7 @@ public class RentalCase implements Comparable<RentalCase>, Comparator<RentalCase
     public RentalCase(boolean extension, String bookId, String memberId) throws ParseException {
         informations.add(this.bookId = bookId);
         informations.add(this.memberId = memberId);
-        this.rentalDate = dateHandler.getInstance().now();
+        this.rentalDate = dateHandler.now();
         dateHandler.init();
         this.setInformation(extension);
     }
@@ -28,7 +28,7 @@ public class RentalCase implements Comparable<RentalCase>, Comparator<RentalCase
     public RentalCase(boolean extension, String bookId, String memberId, List<String> informations) throws ParseException {
         this.informations = informations;
         informations.add(this.memberId = memberId);
-        this.rentalDate = dateHandler.getInstance().now();
+        this.rentalDate = dateHandler.now();
         dateHandler.init();
         this.setInformation(extension);
     }

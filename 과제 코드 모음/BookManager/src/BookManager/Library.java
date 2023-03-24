@@ -49,10 +49,10 @@ public class Library {
     
     public Member resign(String memberId) throws IOException, ParseException, CloneNotSupportedException {
         memberList.deleteFromList(memberId);
-        return memberList.resigner;
+        return MemberList.resigner;
     }
     
     public void undoResign() throws NullPointerException {
-        memberList.addToList(memberList.resigner);
+        memberList.addToList(MemberList.resigner);
     }
 }

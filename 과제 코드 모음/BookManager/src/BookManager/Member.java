@@ -149,17 +149,10 @@ public class Member implements Comparable<Member>, Comparator<Member> {
         List<String> informations = new ArrayList<>();
         for (int i = 0; i < stringClone.length; i++) {
             if (i == 0) {
-                String memberId = stringClone[0];
                 continue;
-            } else if (i == stringClone.length - 1) {
-                if (stringClone[i] == "대출있음") {
-                    boolean rentStatus = true;
-                } else {
-                    rentStatus = false;
-                }
             }
             informations.add(stringClone[i]);
         }
-        return new Member(memberId, rentStatus, informations);
+        return new Member(stringClone[0], (stringClone[stringClone.length - 1] == "대출있음"), informations);
     }
 }
