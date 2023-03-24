@@ -71,43 +71,43 @@ public class RentalList implements Listable<RentalCase> {
 
     public void sort(String input) {
         input = input.toLowerCase();
-        if (input == "bookid") {
-            Collections.sort(listUp(), new Comparator<RentalCase>() {
+        if ("bookid".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.getBookId().compareTo(c2.getBookId());
                 }
             });
-        } else if (input == "mamberid") {
-            Collections.sort(listUp(), new Comparator<RentalCase>() {
+        } else if ("mamberid".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.getMemberId().compareTo(c2.getMemberId());
                 }
             });
-        } else if (input == "extension") {
-            Collections.sort(listUp(), new Comparator<RentalCase>() {
+        } else if ("extension".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.Extension2String(c1.getExtension()).compareTo(c2.Extension2String(c2.getExtension()));
                 }
             });
-        } else if (input == "rentaldate") {
-            Collections.sort(listUp(), new Comparator<RentalCase>() {
+        } else if ("rentaldate".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.getRentalDate().compareTo(c2.getRentalDate());
                 }
             });
-        } else if (input == "returndate") {
-            Collections.sort(listUp(), new Comparator<RentalCase>() {
+        } else if ("returndate".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.getReturnDate().compareTo(c2.getReturnDate());
                 }
             });
-        } else if (input == "remaindays") {
-            Collections.sort(listUp(), new Comparator<RentalCase>() {
+        } else if ("remaindays".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.getRemainDays().compareTo(c2.getRemainDays());
@@ -120,7 +120,7 @@ public class RentalList implements Listable<RentalCase> {
 
     @Override
     public void sort() {
-        Collections.sort(listUp());
+        Collections.sort(this.listUp());
     }
 
     @Override

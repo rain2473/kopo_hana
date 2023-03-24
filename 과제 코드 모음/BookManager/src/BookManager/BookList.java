@@ -82,65 +82,71 @@ public class BookList implements Listable<Book> {
         return BookList.numberOfBooks;
     }
 
-    public void sort(String input) {
+    public List<Book> sortedListUp(String input) {
         input = input.toLowerCase();
-        if (input == "rentalstatus") {
-            Collections.sort(listUp(), new Comparator<Book>() {
+        if ("rentalstatus".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.rentalStatus2String().compareTo(c2.rentalStatus2String());
                 }
             });
-        } else if (input == "bookid") {
-            Collections.sort(listUp(), new Comparator<Book>() {
+        } else if ("bookid".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getBookId().compareTo(c2.getBookId());
                 }
             });
-        } else if (input == "bookname") {
-            Collections.sort(listUp(), new Comparator<Book>() {
+        } else if ("bookname".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getBookName().compareTo(c2.getBookName());
                 }
             });
-        } else if (input == "Storedate") {
-            Collections.sort(listUp(), new Comparator<Book>() {
+        } else if ("Storedate".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getStoreDate().compareTo(c2.getStoreDate());
                 }
             });
-        } else if (input == "author") {
-            Collections.sort(listUp(), new Comparator<Book>() {
+        } else if ("author".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getAuthor().compareTo(c2.getAuthor());
                 }
             });
-        } else if (input == "publisher") {
-            Collections.sort(listUp(), new Comparator<Book>() {
+        } else if ("publisher".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getPulisher().compareTo(c2.getPulisher());
                 }
             });
-        } else if (input == "price") {
-            Collections.sort(listUp(), new Comparator<Book>() {
+        } else if ("price".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getPrice().compareTo(c2.getPrice());
                 }
             });
         } else {
-            this.sort();
+            Collections.sort(this.listUp(), new Comparator<Book>() {
+                @Override
+                public int compare(Book c1, Book c2) {
+                    return c1.getPrice().compareTo(c2.getPrice());
+                }
+            });
         }
+        return this.listUp();
     }
     
     @Override
     public void sort() {
-        Collections.sort(listUp());
+        Collections.sort(this.listUp());
     }
 
     @Override

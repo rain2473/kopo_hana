@@ -86,57 +86,57 @@ public class MemberList implements Listable<Member> {
 
     public void sort(String input) {
         input = input.toLowerCase();
-        if (input == "rentStatus") {
-            Collections.sort(listUp(), new Comparator<Member>() {
+        if ("rentStatus".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Member>() {
                 @Override
                 public int compare(Member c1, Member c2) {
                     return c1.RentStatus2String().compareTo(c2.RentStatus2String());
                 }
             });
-        } else if (input == "memberid") {
-            Collections.sort(listUp(), new Comparator<Member>() {
+        } else if ("memberid".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Member>() {
                 @Override
                 public int compare(Member c1, Member c2) {
                     return c1.getMemberId().compareTo(c2.getMemberId());
                 }
             });
-        } else if (input == "name") {
-            Collections.sort(listUp(), new Comparator<Member>() {
+        } else if ("name".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Member>() {
                 @Override
                 public int compare(Member c1, Member c2) {
                     return c1.getName().compareTo(c2.getName());
                 }
             });
-        } else if (input == "joindate") {
-            Collections.sort(listUp(), new Comparator<Member>() {
+        } else if ("joindate".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Member>() {
                 @Override
                 public int compare(Member c1, Member c2) {
                     return c1.getJoinDate().compareTo(c2.getJoinDate());
                 }
             });
-        } else if (input == "address") {
-            Collections.sort(listUp(), new Comparator<Member>() {
+        } else if ("address".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Member>() {
                 @Override
                 public int compare(Member c1, Member c2) {
                     return c1.getAddress().compareTo(c2.getAddress());
                 }
             });
-        } else if (input == "contect") {
-            Collections.sort(listUp(), new Comparator<Member>() {
+        } else if ("contect".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Member>() {
                 @Override
                 public int compare(Member c1, Member c2) {
                     return c1.getContect().compareTo(c2.getContect());
                 }
             });
-        } else if (input == "birthday") {
-            Collections.sort(listUp(), new Comparator<Member>() {
+        } else if ("birthday".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Member>() {
                 @Override
                 public int compare(Member c1, Member c2) {
                     return c1.getBirthDay().compareTo(c2.getBirthDay());
                 }
             });
-        } else if (input == "age") {
-            Collections.sort(listUp(), new Comparator<Member>() {
+        } else if ("age".equals(input)) {
+            Collections.sort(this.listUp(), new Comparator<Member>() {
                 @Override
                 public int compare(Member c1, Member c2) {
                     return c1.getAge().compareTo(c2.getAge());
@@ -149,7 +149,7 @@ public class MemberList implements Listable<Member> {
 
     @Override
     public void sort() {
-        Collections.sort(listUp());
+        Collections.sort(this.listUp());
     }
 
     @Override

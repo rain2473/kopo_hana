@@ -1,7 +1,9 @@
 package BookManager;
 
 import java.io.IOException;
+
 import java.text.ParseException;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args)
@@ -26,8 +28,8 @@ public class Main {
         // memberList.addToList(member1);
         // Member member2 = new Member("전우치", "평양시", "010-9876-4568", "1550/12/18");
         // memberList.addToList(member2);
-//         Member member3 = new Member("김첨지", "부산시", "010-4562-9876", "1894/05/06");
-//         memberList.addToList(member3);
+        // Member member3 = new Member("김첨지", "부산시", "010-4562-9876", "1894/05/06");
+        // memberList.addToList(member3);
         for (Book book : booklist.listUp()) {
             System.out.println(book.toString());
         }
@@ -60,13 +62,19 @@ public class Main {
         for (Member member : memberList.listUp()) {
             System.out.println(member.toString());
         }
-        
+
         Library.getInstance().undoResign();
-        
+
         for (Member member : memberList.listUp()) {
             System.out.println(member.toString());
         }
-        
+
+        List<Book> sortedbooklist = booklist.sortedListUp("pulishingdate");
+
+        for (Book book : sortedbooklist) {
+            System.out.println(book.toString());
+        }
+
         BackUpHandler.saveFile("BackUpRentallist.csv", rentalList);
         BackUpHandler.saveFile("BackUpMemberlist.csv", memberList);
         BackUpHandler.saveFile("BackUpBooklist.csv", booklist);
