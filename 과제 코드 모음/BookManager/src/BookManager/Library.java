@@ -43,6 +43,14 @@ public class Library {
         member.setRentStatus(true);
     }
     
+    public void returnBook(String memberId, String BookId) throws IOException, ParseException {
+        rentalList.deleteFromList(BookId);
+        Book book = booklist.findById(BookId);
+        Member member = memberList.findById(memberId);
+        book.setRentalStatus(false);
+        member.setRentStatus(false);
+    }
+    
     public void extens(String memberId, String BookId) throws IOException, ParseException, CloneNotSupportedException {
         rentalList.setContent(BookId);
     }

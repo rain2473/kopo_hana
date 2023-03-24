@@ -11,7 +11,7 @@ public class BackUpHandler {
 
     public static BackUpHandler getInstance() {
         if (instance == null) {
-            synchronized (InputGetter.class) {
+            synchronized (InputHandler.class) {
                 if (instance == null) {
                     instance = new BackUpHandler();
                 }
