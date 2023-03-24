@@ -69,53 +69,60 @@ public class RentalList implements Listable<RentalCase> {
         list.remove(bookId);
     }
 
-    public void sort(String input) {
+    public List<RentalCase> sortedListUp(String input) {
+        List<RentalCase> result = new ArrayList<RentalCase>(this.listUp());
         input = input.toLowerCase();
         if ("bookid".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
+            Collections.sort(result, new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.getBookId().compareTo(c2.getBookId());
                 }
             });
         } else if ("mamberid".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
+            Collections.sort(result, new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.getMemberId().compareTo(c2.getMemberId());
                 }
             });
         } else if ("extension".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
+            Collections.sort(result, new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.Extension2String(c1.getExtension()).compareTo(c2.Extension2String(c2.getExtension()));
                 }
             });
         } else if ("rentaldate".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
+            Collections.sort(result, new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.getRentalDate().compareTo(c2.getRentalDate());
                 }
             });
         } else if ("returndate".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
+            Collections.sort(result, new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.getReturnDate().compareTo(c2.getReturnDate());
                 }
             });
         } else if ("remaindays".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<RentalCase>() {
+            Collections.sort(result, new Comparator<RentalCase>() {
                 @Override
                 public int compare(RentalCase c1, RentalCase c2) {
                     return c1.getRemainDays().compareTo(c2.getRemainDays());
                 }
             });
         } else {
-            this.sort();
+            Collections.sort(result, new Comparator<RentalCase>() {
+                @Override
+                public int compare(RentalCase c1, RentalCase c2) {
+                    return c1.getRemainDays().compareTo(c2.getRemainDays());
+                }
+            });
         }
+        return result;
     }
 
     @Override

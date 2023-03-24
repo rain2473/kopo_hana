@@ -83,65 +83,66 @@ public class BookList implements Listable<Book> {
     }
 
     public List<Book> sortedListUp(String input) {
+        List<Book> result = new ArrayList<Book>(this.listUp());
         input = input.toLowerCase();
         if ("rentalstatus".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<Book>() {
+            Collections.sort(result, new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.rentalStatus2String().compareTo(c2.rentalStatus2String());
                 }
             });
         } else if ("bookid".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<Book>() {
+            Collections.sort(result, new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getBookId().compareTo(c2.getBookId());
                 }
             });
         } else if ("bookname".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<Book>() {
+            Collections.sort(result, new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getBookName().compareTo(c2.getBookName());
                 }
             });
         } else if ("Storedate".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<Book>() {
+            Collections.sort(result, new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getStoreDate().compareTo(c2.getStoreDate());
                 }
             });
         } else if ("author".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<Book>() {
+            Collections.sort(result, new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getAuthor().compareTo(c2.getAuthor());
                 }
             });
         } else if ("publisher".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<Book>() {
+            Collections.sort(result, new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getPulisher().compareTo(c2.getPulisher());
                 }
             });
         } else if ("price".equals(input)) {
-            Collections.sort(this.listUp(), new Comparator<Book>() {
+            Collections.sort(result, new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
                     return c1.getPrice().compareTo(c2.getPrice());
                 }
             });
         } else {
-            Collections.sort(this.listUp(), new Comparator<Book>() {
+            Collections.sort(result, new Comparator<Book>() {
                 @Override
                 public int compare(Book c1, Book c2) {
-                    return c1.getPrice().compareTo(c2.getPrice());
+                    return c1.getPulishingDate().compareTo(c2.getPulishingDate());
                 }
             });
         }
-        return this.listUp();
+        return result;
     }
     
     @Override

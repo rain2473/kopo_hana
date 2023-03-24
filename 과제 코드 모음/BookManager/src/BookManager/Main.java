@@ -74,6 +74,18 @@ public class Main {
         for (Book book : sortedbooklist) {
             System.out.println(book.toString());
         }
+        
+        List<Member> sortedmemberlist = memberList.sortedListUp("address");
+
+        for (Member book : sortedmemberlist) {
+            System.out.println(book.toString());
+        }
+        
+        List<RentalCase> sortedrentallist = rentalList.sortedListUp("remaindays");
+
+        for (RentalCase book : sortedrentallist) {
+            System.out.println(book.toString());
+        }
 
         BackUpHandler.saveFile("BackUpRentallist.csv", rentalList);
         BackUpHandler.saveFile("BackUpMemberlist.csv", memberList);
