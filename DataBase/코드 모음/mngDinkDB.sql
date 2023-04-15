@@ -1,0 +1,1 @@
+ALTER user user22 IDENTIFIED by ghddbsrl;

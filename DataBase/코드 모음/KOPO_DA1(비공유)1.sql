@@ -1,0 +1,5 @@
+SELECT * FROM DEPT;
+SELECT DEPTNO,DNAME,NVL(LOC,'미지정지역') AS LOC FROM DEPT; 
+
+SELECT distinct sid
+FROM v$mystat;
